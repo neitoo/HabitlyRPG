@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#650175"
-    tools:context=".MainActivity">
+    tools:context=".RegisterActivity">
 
     <ImageView
         android:id="@+id/imagelogin"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/maredivr_regular"
-        android:text="LOGIN"
+        android:text="REGISTER"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imagelogin" />
 
     <EditText
-        android:id="@+id/emailETL"
+        android:id="@+id/emailETR"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginHorizontal="50dp"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textLogin" />
 
     <EditText
-        android:id="@+id/passwordETL"
+        android:id="@+id/passwordETR"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
@@ -79,33 +79,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailETL" />
+        app:layout_constraintTop_toBottomOf="@+id/emailETR" />
 
-    <Button
-        android:id="@+id/loginBTL"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="50dp"
         android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="80dp"
-        android:background="@drawable/custom_button"
-        android:text="login"
-        android:textColor="#F2D6F6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordETL" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordETR"
+        tools:layout_editor_absoluteX="0dp">
 
-    <Button
-        android:id="@+id/registerBTL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="80dp"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/custom_button"
-        android:text="register"
-        android:textColor="#F2D6F6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordETL" />
+        <Button
+            android:id="@+id/backBT"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:text="back"
+            android:textColor="#F2D6F6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/registerBTR" />
+
+        <Button
+            android:id="@+id/registerBTR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:layout_marginLeft="60dp"
+            android:text="register"
+            android:textColor="#F2D6F6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

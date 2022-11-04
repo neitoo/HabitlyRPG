@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "518753917479",
+    "project_id": "habitlyrpg",
+    "storage_bucket": "habitlyrpg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518753917479:android:a86224058348d1d4130c02",
+        "android_client_info": {
+          "package_name": "ru.neito.habitlyrpg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518753917479-nn7svg3oroop46gi3a6ipk4tma1eegof.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.neito.habitlyrpg",
+            "certificate_hash": "67cf5915560b9eb78edb7ea90c11d7589512a969"
+          }
+        },
+        {
+          "client_id": "518753917479-r563c836cq4n385m927fa0261ntqc5lo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzCz6c8EOg9AK-3bB5OfQswFpthDl4X0o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518753917479-r563c836cq4n385m927fa0261ntqc5lo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
