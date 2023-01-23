@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tasks"
+        android:icon="@drawable/flash"
+
+        android:iconTint="#fff"
+        android:title="Ваш путь" />
+    <item android:title="Магазин"
+        android:id="@+id/store"
+        android:icon="@drawable/shop"
+        android:iconTint="#fff" />
+    <item android:title="Боссы"
+        android:id="@+id/bosses"
+        android:icon="@drawable/alien"
+        android:iconTint="#fff"/>
+</menu>

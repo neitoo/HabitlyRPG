@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#650175"
+    android:background="#080C25"
     tools:context=".SplashScreen">
 
     <ImageView
@@ -15,18 +15,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo2" />
+        app:srcCompat="@drawable/icon" />
 
     <TextView
         android:id="@+id/nameAppSplash"
         android:layout_width="132dp"
         android:layout_height="77dp"
         android:layout_marginTop="28dp"
-        android:fontFamily="@font/maredivr_regular"
+        android:fontFamily="@font/opensansmediun"
         android:text="HabitlyRPG Tracker"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

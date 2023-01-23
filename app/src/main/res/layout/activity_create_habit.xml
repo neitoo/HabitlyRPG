@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#080C25"
+    tools:context=".CreateHabitActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <ImageButton
+                    android:id="@+id/closeBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:backgroundTint="#00FFFFFF"
+                    app:srcCompat="@drawable/close" />
+
+                <TextView
+                    android:id="@+id/textCreate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensansmediun"
+                    android:text="Создание новой привычки"
+                    android:textColor="#FFF"
+                    android:textSize="21sp" />
+
+            </TableRow>
+
+            <EditText
+                android:id="@+id/nameHabitInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:fontFamily="@font/opensansmediun"
+                android:hint="Название привычки"
+                android:inputType="textPersonName"
+                android:padding="10dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#777777"
+                android:textSize="20sp" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp">
+
+                <RadioButton
+                    android:id="@+id/regularRB"
+                    android:layout_width="100dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/radio_selector"
+                    android:button="@null"
+                    android:drawableTop="@drawable/arrow"
+                    android:fontFamily="@font/opensansmediun"
+                    android:paddingTop="15dp"
+                    android:text="Регулярная"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/harmfulRB"
+                    android:layout_width="100dp"
+                    android:layout_height="110dp"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/radio_selector"
+                    android:button="@null"
+                    android:drawableTop="@drawable/alert"
+                    android:fontFamily="@font/opensansmediun"
+                    android:paddingTop="15dp"
+                    android:text="Вредная"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/disposableRB"
+                    android:layout_width="100dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/radio_selector"
+                    android:button="@null"
+                    android:drawableTop="@drawable/check"
+                    android:fontFamily="@font/opensansmediun"
+                    android:paddingTop="15dp"
+                    android:text="Одноразовая"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/saveHabitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/opensansmediun"
+            android:padding="10dp"
+            android:text="Сохранить"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </FrameLayout>
+</FrameLayout>

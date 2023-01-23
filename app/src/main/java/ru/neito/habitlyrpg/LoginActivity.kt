@@ -1,41 +1,36 @@
 package ru.neito.habitlyrpg
 
-
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.widget.CompoundButton
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_register.*
 
 class LoginActivity : AppCompatActivity() {
     lateinit var sharePref: SharedPreferences
-    var isRemembered = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         sharePref = getSharedPreferences("SHARED_PREF",MODE_PRIVATE)
 
-        val emailShare = sharePref.getString("emailID","")
+        val emailShare = sharePref.getString("email","")
         val passwordShare = sharePref.getString("password","")
         val checkboxShare = sharePref.getBoolean("rememberMe", false)
 
         rememberMeCheck.isChecked = checkboxShare
 
         if (rememberMeCheck.isChecked){
-            emailETL.setText(emailShare)
-            passwordETL.setText(passwordShare)
+            emailPlain.setText(emailShare)
+            passwordPlain.setText(passwordShare)
 
-            val email: String = emailETL.text.toString().trim{ it <= ' '}
-            val password: String =passwordETL.text.toString().trim {it <= ' '}
+            val email: String = emailPlain.text.toString().trim{ it <= ' '}
+            val password: String = passwordPlain.text.toString().trim {it <= ' '}
 
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener { task ->
@@ -49,14 +44,14 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-        registerBTL.setOnClickListener{
-            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+        registerBtn.setOnClickListener{
+            val intent = Intent(this@LoginActivity, RegistrationActivity::class.java)
             startActivity(intent)
         }
 
-        loginBTL.setOnClickListener {
+        loginBtn.setOnClickListener {
             when{
-                TextUtils.isEmpty(emailETL.text.toString().trim{ it <= ' '}) -> {
+                TextUtils.isEmpty(emailPlain.text.toString().trim{ it <= ' '}) -> {
                     Toast.makeText(
                         this@LoginActivity,
                         "Пожалуйста введите email.",
@@ -64,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
                     ).show()
                 }
 
-                TextUtils.isEmpty(passwordETL.text.toString().trim{ it <= ' '}) -> {
+                TextUtils.isEmpty(passwordPlain.text.toString().trim{ it <= ' '}) -> {
                     Toast.makeText(
                         this@LoginActivity,
                         "Пожалуйста введите пароль.",
@@ -72,18 +67,18 @@ class LoginActivity : AppCompatActivity() {
                     ).show()
                 }
                 else ->{
-                    val editor = sharePref.edit()
-                    val email: String = emailETL.text.toString().trim{ it <= ' '}
-                    val password: String =passwordETL.text.toString().trim {it <= ' '}
+                    var editor = sharePref.edit()
+                    val email: String = emailPlain.text.toString().trim{ it <= ' '}
+                    val password: String =passwordPlain.text.toString().trim {it <= ' '}
 
                     if (rememberMeCheck.isChecked){
-                        editor.putString("emailID", email)
+                        editor.putString("email", email)
                         editor.putString("password", password)
                         editor.putBoolean("rememberMe", true)
                         editor.apply()
                     }
                     else if(!rememberMeCheck.isChecked){
-                        editor.putString("emailID", "")
+                        editor.putString("email", "")
                         editor.putString("password", "")
                         editor.putBoolean("rememberMe", false)
                         editor.apply()
@@ -114,8 +109,9 @@ class LoginActivity : AppCompatActivity() {
             val intent =
                 Intent(this@LoginActivity, MainMenuActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            intent.putExtra("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
-            intent.putExtra("email_id", email)
+            var editor = sharePref.edit()
+            editor.putString("user_id", FirebaseAuth.getInstance().currentUser!!.uid)
+            editor.apply()
             startActivity(intent)
             finish()
         } else {
