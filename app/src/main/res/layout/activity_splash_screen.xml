@@ -19,11 +19,11 @@
 
     <TextView
         android:id="@+id/nameAppSplash"
-        android:layout_width="132dp"
+        android:layout_width="0dp"
         android:layout_height="77dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/opensansmediun"
-        android:text="HabitlyRPG Tracker"
+        android:text="HabitlyRPG\nTracker"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"

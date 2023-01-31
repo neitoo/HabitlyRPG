@@ -59,6 +59,17 @@ class MainMenuActivity : AppCompatActivity() {
         mDataBase = FirebaseDatabase.getInstance().getReference("User")
         mDataBase.child(userID).get().addOnSuccessListener {
             userNickname.text = it.child("username").value as CharSequence?
+            val HPvalue = (it.child("hp").value as Long).toInt()
+            val lvlValue = (it.child("lvl").value as Long).toInt()
+            val expValue = (it.child("experience").value as Long).toInt()
+            val moneyValue = (it.child("money").value as Long).toString()
+            progressHp.progress = HPvalue
+            textHp.text = "Здоровье $HPvalue/100"
+
+            progressLvl.progress = expValue
+            textLvl.text = "Уровень $lvlValue ($expValue/100)"
+
+            cointCountText.text = moneyValue
         }
     }
 

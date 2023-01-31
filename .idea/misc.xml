@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/drawable/alien.xml" value="0.173" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/drawable/arrow_back.xml" value="0.173" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/drawable/coin.xml" value="0.173" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/drawable/custom_button.xml" value="0.173" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/drawable/custom_input.xml" value="0.173" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/drawable/custom_progressbar.xml" value="0.173" />
@@ -19,11 +21,11 @@
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/drawable/ripple_effect.xml" value="0.173" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/drawable/settings_btn.xml" value="0.173" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.196875" />
-        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_create_habit.xml" value="0.2" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_create_habit.xml" value="0.176" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_info_account.xml" value="0.25" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_main_menu.xml" value="0.25" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_main_menu.xml" value="0.4" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_registration.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_settings.xml" value="0.264" />
@@ -31,8 +33,10 @@
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/fragment_boss_fight.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/fragment_shop.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/fragment_tasks.xml" value="0.25" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/item_layout.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/layout_dialog.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/menu/bottom_nav.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/menu/show_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.173" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.173" />
       </map>

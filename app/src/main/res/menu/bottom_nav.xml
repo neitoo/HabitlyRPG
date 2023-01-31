@@ -11,8 +11,9 @@
         android:id="@+id/store"
         android:icon="@drawable/shop"
         android:iconTint="#fff" />
-    <item android:title="Боссы"
+    <item
         android:id="@+id/bosses"
         android:icon="@drawable/alien"
-        android:iconTint="#fff"/>
+        android:iconTint="#fff"
+        android:title="Боссы" />
 </menu>

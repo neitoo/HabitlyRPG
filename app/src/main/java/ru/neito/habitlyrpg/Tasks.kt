@@ -1,57 +1,84 @@
 package ru.neito.habitlyrpg
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_main_menu.*
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.fragment_tasks.*
+import org.json.JSONException
+import org.json.JSONObject
+import ru.neito.habitlyrpg.classLogic.AdapterClass
+import ru.neito.habitlyrpg.classLogic.DataClass
+import java.io.File
+import java.io.IOException
+import java.io.InputStream
 
 
 class Tasks : Fragment() {
-    private lateinit var sharePref: SharedPreferences
-    private lateinit var mDataBase: DatabaseReference
-    private lateinit var  userID: String
+    private var titleList: ArrayList<DataClass> = ArrayList()
+    lateinit var title: Array<String>
+    lateinit var id: Array<Int>
+    lateinit var type: Array<Int>
+    private lateinit var recView: RecyclerView
+    private lateinit var helperAdapter: AdapterClass
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        readData(userID)
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tasks, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_tasks, container, false)
+
+        return view
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        sharePref = this.requireActivity().getSharedPreferences("SHARED_PREF", AppCompatActivity.MODE_PRIVATE)
-        userID = sharePref.getString("user_id","")!!
-        readData(userID)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        dataInitialize()
+        recView = view.findViewById(R.id.recyclerView)
+        var linearLayoutManager = LinearLayoutManager(context)
+        recView.layoutManager = linearLayoutManager
+
+
+        helperAdapter = AdapterClass(titleList,context)
+        recView.adapter = helperAdapter
     }
 
-    private fun readData(userID:String) {
+    override fun onResume() {
+        super.onResume()
+        dataInitialize()
+        helperAdapter.notifyDataSetChanged()
+    }
 
-        mDataBase = FirebaseDatabase.getInstance().getReference("User")
-        mDataBase.child(userID).get().addOnSuccessListener {
-            val HPvalue = (it.child("hp").value as Long).toInt()
-            val lvlValue = (it.child("lvl").value as Long).toInt()
-            val expValue = (it.child("experience").value as Long).toInt()
-            val moneyValue = (it.child("money").value as Long).toString()
-            progressHp.progress = HPvalue
-            textHp.text = "Здоровье $HPvalue/100"
+    private fun dataInitialize() {
 
-            progressLvl.progress = expValue
-            textLvl.text = "Уровень $lvlValue ($expValue/100)"
+        try {
+            val path = context?.filesDir?.absolutePath
+            val jsonString = File("$path/habit.json").readText()
+            val gson = Gson()
+            val habits = gson.fromJson(jsonString, JsonObject::class.java)
+                .get("habits")
+                .asJsonArray
+                .map {
+                    gson.fromJson(it, DataClass::class.java)
+                }
+            titleList.clear()
+            titleList.addAll(habits)
 
-            cointCountText.text = moneyValue
-
-
+        } catch (e: JSONException) {
+            e.printStackTrace()
         }
     }
+
 
 }
