@@ -1,4 +1,4 @@
-package ru.neito.habitlyrpg.classLogic
+package ru.neito.habitlyrpg.Model
 
 class User(_id: String?, _username: String, _email: String?, _HP: Int?, _experience: Int?, _Lvl: Int?,_money: Int?) {
     var id: String? = _id

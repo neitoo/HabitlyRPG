@@ -1,12 +1,10 @@
-package ru.neito.habitlyrpg.classLogic
+package ru.neito.habitlyrpg.Model
 
 import android.app.AlertDialog
 import android.content.Context
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
@@ -14,9 +12,9 @@ import kotlinx.android.synthetic.main.item_layout.view.*
 import ru.neito.habitlyrpg.R
 import java.io.File
 
-class AdapterClass(private var titleList: ArrayList<DataClass>,
+class HabitAdapter(private var titleList: ArrayList<Habit>,
                    private val context: Context?):
-    RecyclerView.Adapter<AdapterClass.ViewHolderClass>() {
+    RecyclerView.Adapter<HabitAdapter.ViewHolderClass>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
@@ -48,9 +46,9 @@ class AdapterClass(private var titleList: ArrayList<DataClass>,
 
 
     class ViewHolderClass(itemView: View,
-                          private var titleList: ArrayList<DataClass>,
+                          private var titleList: ArrayList<Habit>,
                           private val context: Context?,
-                          private val adapter: AdapterClass) : RecyclerView.ViewHolder(itemView) {
+                          private val adapter: HabitAdapter) : RecyclerView.ViewHolder(itemView) {
         val nameCategHab = itemView.nameCategHabit
         val checkHab = itemView.checkHabit
         var menu = itemView.moreBtn
@@ -71,7 +69,7 @@ class AdapterClass(private var titleList: ArrayList<DataClass>,
                             .setTitle("Удаление")
                             .setIcon(R.drawable.warning)
                             .setMessage("Вы хотите удалить привычку?")
-                            .setPositiveButton("Yes"){
+                            .setPositiveButton("Да"){
                                 dialog,_->
                                 titleList.removeAt(adapterPosition)
                                 val habits = mapOf("habits" to titleList)
@@ -82,7 +80,7 @@ class AdapterClass(private var titleList: ArrayList<DataClass>,
                                 adapter.notifyItemRemoved(adapterPosition)
                                 dialog.dismiss()
                             }
-                            .setNegativeButton("No"){
+                            .setNegativeButton("Нет"){
                                 dialog,_->
                                 dialog.dismiss()
                             }

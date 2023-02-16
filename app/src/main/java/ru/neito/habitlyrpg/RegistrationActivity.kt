@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_registration.*
-import ru.neito.habitlyrpg.classLogic.User
+import ru.neito.habitlyrpg.Model.User
 
 class RegistrationActivity : AppCompatActivity() {
     lateinit var sharePref: SharedPreferences

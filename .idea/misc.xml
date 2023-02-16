@@ -25,7 +25,7 @@
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_info_account.xml" value="0.25" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_main_menu.xml" value="0.4" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_main_menu.xml" value="0.264" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_registration.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/activity_settings.xml" value="0.264" />
@@ -35,6 +35,7 @@
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/fragment_tasks.xml" value="0.25" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/item_layout.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/layout_dialog.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/layout/shop_layout.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/menu/bottom_nav.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/menu/show_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/MSI/AndroidStudioProjects/HabitlyRPG/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.173" />

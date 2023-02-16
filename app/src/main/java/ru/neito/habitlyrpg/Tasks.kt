@@ -1,36 +1,29 @@
 package ru.neito.habitlyrpg
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DatabaseReference
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.google.gson.Gson
 import com.google.gson.JsonObject
-import kotlinx.android.synthetic.main.fragment_tasks.*
 import org.json.JSONException
-import org.json.JSONObject
-import ru.neito.habitlyrpg.classLogic.AdapterClass
-import ru.neito.habitlyrpg.classLogic.DataClass
+import ru.neito.habitlyrpg.Model.HabitAdapter
+import ru.neito.habitlyrpg.Model.Habit
+import ru.neito.habitlyrpg.Model.Habits
 import java.io.File
-import java.io.IOException
-import java.io.InputStream
 
 
 class Tasks : Fragment() {
-    private var titleList: ArrayList<DataClass> = ArrayList()
+    private var titleList: ArrayList<Habit> = ArrayList()
     lateinit var title: Array<String>
     lateinit var id: Array<Int>
     lateinit var type: Array<Int>
     private lateinit var recView: RecyclerView
-    private lateinit var helperAdapter: AdapterClass
+    private lateinit var helperAdapter: HabitAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,13 +37,21 @@ class Tasks : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val file = File(context?.filesDir, "habit.json")
+        if (!file.exists()) {
+            file.createNewFile()
+            val habits = Habits(listOf<Any>())
+            val objectMapper = jacksonObjectMapper()
+            val json = objectMapper.writeValueAsString(habits)
+            file.writeText(json)
+        }
         dataInitialize()
         recView = view.findViewById(R.id.recyclerView)
         var linearLayoutManager = LinearLayoutManager(context)
         recView.layoutManager = linearLayoutManager
 
 
-        helperAdapter = AdapterClass(titleList,context)
+        helperAdapter = HabitAdapter(titleList,context)
         recView.adapter = helperAdapter
     }
 
@@ -64,21 +65,25 @@ class Tasks : Fragment() {
 
         try {
             val path = context?.filesDir?.absolutePath
-            val jsonString = File("$path/habit.json").readText()
-            val gson = Gson()
-            val habits = gson.fromJson(jsonString, JsonObject::class.java)
-                .get("habits")
-                .asJsonArray
-                .map {
-                    gson.fromJson(it, DataClass::class.java)
-                }
-            titleList.clear()
-            titleList.addAll(habits)
+            val file = File("$path/habit.json")
+            if (file.exists() && file.length() > 0) {
+                val jsonString = file.readText()
+                val gson = Gson()
+                val habits = gson.fromJson(jsonString, JsonObject::class.java)
+                    .get("habits")
+                    .asJsonArray
+                    .map {
+                        gson.fromJson(it, Habit::class.java)
+                    }
+                titleList.clear()
+                titleList.addAll(habits)
+            }
 
         } catch (e: JSONException) {
             e.printStackTrace()
         }
     }
+
 
 
 }
