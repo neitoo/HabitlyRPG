@@ -1,0 +1,32 @@
+{"monster":[
+  {
+    "id":0,
+    "hp": 100,
+    "filePathImage": "Monster/Monster1.png"
+  },
+  {
+    "id":1,
+    "hp": 200,
+    "filePathImage": "Monster/Monster2.png"
+  },
+  {
+    "id":2,
+    "hp": 300,
+    "filePathImage": "Monster/Monster3.png"
+  },
+  {
+    "id":3,
+    "hp": 400,
+    "filePathImage": "Monster/Monster4.png"
+  },
+  {
+    "id":4,
+    "hp": 500,
+    "filePathImage": "Monster/Monster5.png"
+  },
+  {
+    "id":5,
+    "hp": 600,
+    "filePathImage": "Monster/Monster6.png"
+  }
+]}
