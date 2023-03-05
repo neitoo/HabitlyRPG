@@ -55,7 +55,12 @@ class CreateHabitActivity : AppCompatActivity() {
                     R.id.disposableRB -> 3
                     else -> {-1}
                 }
-                val completed = false
+                val completed = when(type){
+                    1 -> false
+                    2 -> true
+                    3 -> false
+                    else -> false
+                }
 
                 val fileInputStream = context.openFileInput(fileName)
                 val habits = mapper.readValue<Map<String, List<Habit>>>(fileInputStream).toMutableMap()

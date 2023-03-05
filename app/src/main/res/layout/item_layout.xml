@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="10dp"
-                    app:srcCompat="@drawable/task_lght" />
+                    app:srcCompat="@drawable/task" />
 
                 <TextView
                     android:id="@+id/nameCategHabit"

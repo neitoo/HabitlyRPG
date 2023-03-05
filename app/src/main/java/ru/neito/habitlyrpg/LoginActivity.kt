@@ -29,16 +29,6 @@ class LoginActivity : AppCompatActivity() {
             emailPlain.setText(emailShare)
             passwordPlain.setText(passwordShare)
 
-            val email: String = emailPlain.text.toString().trim{ it <= ' '}
-            val password: String = passwordPlain.text.toString().trim {it <= ' '}
-
-            FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
-                .addOnCompleteListener { task ->
-                    userLogin(task, email)
-                }
-
-
-
         }
 
 
