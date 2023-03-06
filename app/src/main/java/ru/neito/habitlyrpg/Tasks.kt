@@ -1,6 +1,7 @@
 package ru.neito.habitlyrpg
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +19,7 @@ import java.io.File
 
 
 class Tasks : Fragment() {
-    private var titleList: ArrayList<Habit> = ArrayList()
+    private var titleList: MutableList<Habit> = ArrayList()
     lateinit var title: Array<String>
     lateinit var id: Array<Int>
     lateinit var type: Array<Int>
@@ -53,6 +54,7 @@ class Tasks : Fragment() {
 
         helperAdapter = HabitAdapter(titleList,context)
         recView.adapter = helperAdapter
+
     }
 
     override fun onResume() {
@@ -77,6 +79,7 @@ class Tasks : Fragment() {
                     }
                 titleList.clear()
                 titleList.addAll(habits)
+                titleList.sortWith(compareBy({it.complete}, {it.id}))
             }
 
         } catch (e: JSONException) {

@@ -23,9 +23,10 @@
             android:checked="false" />
 
         <FrameLayout
+            android:id="@+id/backgroundHabit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_button"
+            android:background="@drawable/habit_bg"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
 

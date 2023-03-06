@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.item_layout.view.*
 import ru.neito.habitlyrpg.R
 import java.io.File
 
-class HabitAdapter(private var titleList: ArrayList<Habit>,
+class HabitAdapter(private var titleList: MutableList<Habit>,
                    private val context: Context?):
     RecyclerView.Adapter<HabitAdapter.ViewHolderClass>() {
 
@@ -31,9 +32,27 @@ class HabitAdapter(private var titleList: ArrayList<Habit>,
         val currentItem = titleList[position]
         holder.nameCategHab.text = currentItem.title
         holder.checkHab.isChecked = titleList[position].complete
+        if (titleList[position].complete) {
+            holder.frame.setBackgroundResource(R.drawable.habit_bg_checked)
+        } else {
+            holder.frame.setBackgroundResource(R.drawable.habit_bg)
+        }
+
         holder.checkHab.setOnCheckedChangeListener { _, isChecked ->
             titleList[position].complete = isChecked
             saveData()
+
+            if (isChecked) {
+                holder.frame.setBackgroundResource(R.drawable.habit_bg_checked)
+            } else {
+                holder.frame.setBackgroundResource(R.drawable.habit_bg)
+            }
+
+            // Сортировка списка при изменении состояния чекбокса
+            titleList.sortWith(compareBy({it.complete}, {it.id}))
+            holder.itemView.post {
+                notifyDataSetChanged()
+            }
         }
     }
 
@@ -46,15 +65,17 @@ class HabitAdapter(private var titleList: ArrayList<Habit>,
 
 
     class ViewHolderClass(itemView: View,
-                          private var titleList: ArrayList<Habit>,
+                          private var titleList: MutableList<Habit>,
                           private val context: Context?,
                           private val adapter: HabitAdapter) : RecyclerView.ViewHolder(itemView) {
         val nameCategHab = itemView.nameCategHabit
         val checkHab = itemView.checkHabit
         var menu = itemView.moreBtn
+        var frame = itemView.backgroundHabit
         init {
 
             menu.setOnClickListener { popupMenu(it) }
+
         }
 
         private fun popupMenu(v:View) {

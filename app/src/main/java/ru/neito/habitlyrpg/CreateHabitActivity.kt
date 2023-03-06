@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Toast
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
@@ -25,6 +26,26 @@ class CreateHabitActivity : AppCompatActivity() {
             val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
             finish()
+        }
+        
+        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.regularRB -> {
+                    infoHabit.text = getString(R.string.habit_info_regular)
+                    infoHabit.visibility = View.VISIBLE
+                }
+                R.id.harmfulRB -> {
+                    infoHabit.text = getString(R.string.habit_info_harmful)
+                    infoHabit.visibility = View.VISIBLE
+                }
+                R.id.disposableRB -> {
+                    infoHabit.text = getString(R.string.habit_info_disposable)
+                    infoHabit.visibility = View.VISIBLE
+                }
+                else -> {
+                    infoHabit.visibility = View.GONE
+                }
+            }
         }
 
         saveHabitBtn.setOnClickListener {
@@ -66,18 +87,10 @@ class CreateHabitActivity : AppCompatActivity() {
                 val habits = mapper.readValue<Map<String, List<Habit>>>(fileInputStream).toMutableMap()
                 fileInputStream.close()
 
-                habits["habits"] = habits["habits"]!!.plus(Habit(id, nameHabit, type, completed))
+                habits["habits"] = listOf(Habit(id, nameHabit, type, completed)) + habits["habits"]!!
                 val fileOutputStream = context.openFileOutput(fileName, Context.MODE_PRIVATE)
                 mapper.writeValue(fileOutputStream, habits)
                 fileOutputStream.close()
-                /*val fileInputStream = openFileInput(fileName)
-                val habits = mapper.readValue<Map<String, List<Habit>>>(fileInputStream).toMutableMap()
-                fileInputStream.close()
-
-                habits["habits"] = habits["habits"]!!.plus(Habit(id, nameHabit, type, completed))
-                val fileOutputStream = openFileOutput(fileName, Context.MODE_PRIVATE)
-                mapper.writeValue(fileOutputStream, habits)
-                fileOutputStream.close()*/
 
 
                 finish()
