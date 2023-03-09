@@ -11,6 +11,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_info_account.*
 import kotlinx.android.synthetic.main.activity_main_menu.*
+import ru.neito.habitlyrpg.Logic.AlarmService
 import java.util.prefs.AbstractPreferences
 
 class MainMenuActivity : AppCompatActivity() {
@@ -21,12 +22,12 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
 
-
         sharePref = getSharedPreferences("SHARED_PREF",MODE_PRIVATE)
         userID = sharePref.getString("user_id","")!!
         readData(userID)
 
         replaceFragment(Tasks())
+        startService(Intent(this, AlarmService::class.java))
 
         navigation_view.setOnItemSelectedListener {
             when(it.itemId){

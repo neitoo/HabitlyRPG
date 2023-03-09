@@ -1,28 +1,53 @@
 package ru.neito.habitlyrpg.Model
 
 import android.app.AlertDialog
+import android.content.BroadcastReceiver
 import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.item_layout.view.*
 import ru.neito.habitlyrpg.R
 import java.io.File
 
-class HabitAdapter(private var titleList: MutableList<Habit>,
-                   private val context: Context?):
-    RecyclerView.Adapter<HabitAdapter.ViewHolderClass>() {
+class HabitAdapter(
+    private var titleList: MutableList<Habit>,
+    private val context: Context?,
+    private val viewModel: HabitViewModel
+) : RecyclerView.Adapter<HabitAdapter.ViewHolderClass>() {
 
+    private val habitsObserver = Observer<List<Habit>> { habits ->
+        titleList.clear()
+        titleList.addAll(habits)
+        notifyDataSetChanged()
+    }
+
+    init {
+        viewModel.getHabitsLiveData().observeForever(habitsObserver)
+    }
+    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView)
+        viewModel.getHabitsLiveData().removeObserver(habitsObserver)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
         return ViewHolderClass(itemView,titleList,context,this)
     }
+
 
     override fun getItemCount(): Int {
         return titleList.size
@@ -54,6 +79,7 @@ class HabitAdapter(private var titleList: MutableList<Habit>,
                 notifyDataSetChanged()
             }
         }
+
     }
 
     private fun saveData() {
