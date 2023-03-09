@@ -47,7 +47,8 @@
             style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
             android:indeterminateDrawable="@drawable/custom_progressbar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
     </LinearLayout>
 
 </FrameLayout>
