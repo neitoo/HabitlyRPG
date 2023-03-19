@@ -4,11 +4,13 @@ import android.graphics.drawable.Drawable
 import android.util.Log
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.TextView
 import ru.neito.habitlyrpg.Model.Monster
 
 class Boss(
     private val bossImageView: ImageView,
     private val bossHealthBar: ProgressBar,
+    private val bossTextHp: TextView,
     private val monsterList: List<Monster>
 ) {
 
@@ -46,5 +48,7 @@ class Boss(
             setBoss(currentBossIndex)
         }
         bossHealthBar.progress = currentBossHp
+        bossTextHp.text = "Здоровье $currentBossHp/${bossHealthBar.max}"
+
     }
 }

@@ -3,5 +3,13 @@
     <style name="CustomDialogTheme" parent="Theme.AppCompat.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:background">#161E35</item>
+        <item name="android:windowBackground">@drawable/radius</item>
+        <item name="android:windowMinWidthMinor">85%</item>
+        <item name="android:windowAnimationStyle">@style/animate</item>
+    </style>
+
+    <style name="animate">
+        <item name="android:windowEnterAnimation">@anim/scale_up</item>
+        <item name="android:windowExitAnimation">@anim/scale_down</item>
     </style>
 </resources>

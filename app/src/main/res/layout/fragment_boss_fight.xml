@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:fontFamily="@font/opensansregular"
-                android:text="Монстер 100/100"
+                android:text="Здоровье 100/100"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="12sp" />

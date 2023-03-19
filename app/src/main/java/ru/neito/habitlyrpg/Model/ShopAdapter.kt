@@ -1,5 +1,7 @@
 package ru.neito.habitlyrpg.Model
 
+import android.app.AlertDialog
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,8 @@ import com.squareup.picasso.Callback
 import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_shop.view.*
+import kotlinx.android.synthetic.main.layout_dialog.view.*
+import kotlinx.android.synthetic.main.layout_dialog_buy.view.*
 import kotlinx.android.synthetic.main.shop_layout.view.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -25,6 +29,7 @@ class ShopAdapter(private var shopItems: MutableList<DataShop>) :
         val card = itemView.shopCard
         val image = itemView.itemShop
         val price = itemView.textPrice
+        val damage = itemView.textDamage
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShopHolder {
@@ -36,6 +41,7 @@ class ShopAdapter(private var shopItems: MutableList<DataShop>) :
     override fun onBindViewHolder(holder: ShopHolder, position: Int) {
         val item = shopItems[position]
         holder.price.text = "${item.price}"
+        holder.damage.text = "+${item.damage} урона"
         val storageRef = storage.reference.child(item.image)
         storageRef.downloadUrl.addOnSuccessListener { uri ->
             Picasso.get()
@@ -43,9 +49,22 @@ class ShopAdapter(private var shopItems: MutableList<DataShop>) :
                 .networkPolicy(NetworkPolicy.OFFLINE)
                 .into(holder.image)
         }
+
+        holder.card.setOnClickListener {
+            val dialogView = LayoutInflater.from(holder.itemView.context).inflate(R.layout.layout_dialog_buy, null)
+            val dialog = AlertDialog.Builder(holder.itemView.context, R.style.CustomDialogTheme)
+                .setView(dialogView)
+                .create()
+            dialog.show()
+            dialogView.okBuyBtn.setOnClickListener {
+                dialog.dismiss()
+
+            }
+            dialogView.cancelBuyBtn.setOnClickListener {
+                dialog.dismiss()
+            }
+        }
     }
 
     override fun getItemCount() = shopItems.size
-
-
 }

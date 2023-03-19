@@ -53,19 +53,18 @@ class InfoAccountActivity : AppCompatActivity() {
     }
 
     private fun openDialog() {
-        val mDialogView = LayoutInflater.from(this).inflate(R.layout.layout_dialog,null)
-        val mBuilder = AlertDialog.Builder(this).setView(mDialogView)
-        val mAlertDialog = mBuilder.show()
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.layout_dialog,null)
+        val builder = AlertDialog.Builder(this, R.style.CustomDialogTheme).setView(dialogView).show()
 
-        mDialogView.editName.setText(name)
-        mDialogView.saveChangeBtn.setOnClickListener {
-            mAlertDialog.dismiss()
+        dialogView.editName.setText(name)
+        dialogView.saveChangeBtn.setOnClickListener {
+            builder.dismiss()
 
-            writeData(mDialogView,userID!!)
+            writeData(dialogView,userID!!)
 
         }
-        mDialogView.cancelBtn.setOnClickListener {
-            mAlertDialog.dismiss()
+        builder.cancelBtn.setOnClickListener {
+            builder.dismiss()
         }
     }
 
