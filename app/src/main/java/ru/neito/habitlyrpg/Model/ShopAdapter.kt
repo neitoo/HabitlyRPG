@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import ru.neito.habitlyrpg.R
 
-class ShopAdapter(private var shopItems: MutableList<DataShop>) :
+class ShopAdapter(private var shopItems: MutableList<DataShop>, private var moneyValue: String) :
     RecyclerView.Adapter<ShopAdapter.ShopHolder>(){
 
     private val storage = FirebaseStorage.getInstance()
@@ -52,6 +52,23 @@ class ShopAdapter(private var shopItems: MutableList<DataShop>) :
 
         holder.card.setOnClickListener {
             val dialogView = LayoutInflater.from(holder.itemView.context).inflate(R.layout.layout_dialog_buy, null)
+
+            val currentItem = shopItems[position]
+            val storageRef = storage.reference.child(currentItem.image)
+            storageRef.downloadUrl.addOnSuccessListener { uri ->
+                Picasso.get()
+                    .load(uri)
+                    .networkPolicy(NetworkPolicy.OFFLINE)
+                    .into(dialogView.itemBuyView)
+            }
+
+            dialogView.textNameBuy.text = currentItem.name
+            dialogView.textDescBuy.text = currentItem.description
+            dialogView.textDamageInfo2.text = "+${currentItem.damage}"
+            dialogView.textYouBalanc.text = "Ваш баланс: ${moneyValue}"
+            dialogView.textCost.text = "Цена: " + currentItem.price.toString()
+
+
             val dialog = AlertDialog.Builder(holder.itemView.context, R.style.CustomDialogTheme)
                 .setView(dialogView)
                 .create()

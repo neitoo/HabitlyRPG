@@ -36,7 +36,7 @@
     "image":"shopitem/weapon05.png",
     "price":1580,
     "damage": 50,
-    "name": "лук",
+    "name": "Лук",
     "description": "Дальнобойное оружие, стреляющее стрелами"
   },
   {

@@ -7,8 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_info_account.*
 import kotlinx.android.synthetic.main.activity_main_menu.*
 import ru.neito.habitlyrpg.Logic.AlarmService
@@ -18,6 +17,8 @@ class MainMenuActivity : AppCompatActivity() {
     private lateinit var sharePref: SharedPreferences
     private lateinit var mDataBase: DatabaseReference
     private lateinit var  userID: String
+
+    lateinit var moneyValue: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
@@ -60,20 +61,25 @@ class MainMenuActivity : AppCompatActivity() {
     private fun readData(userID:String) {
 
         mDataBase = FirebaseDatabase.getInstance().getReference("User")
-        mDataBase.child(userID).get().addOnSuccessListener {
-            userNickname.text = it.child("username").value as CharSequence?
-            val HPvalue = (it.child("hp").value as Long).toInt()
-            val lvlValue = (it.child("lvl").value as Long).toInt()
-            val expValue = (it.child("experience").value as Long).toInt()
-            val moneyValue = (it.child("money").value as Long).toString()
-            progressHp.progress = HPvalue
-            textHp.text = "Здоровье $HPvalue/100"
+        mDataBase.child(userID).addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                userNickname.text = snapshot.child("username").value as CharSequence?
+                val HPvalue = (snapshot.child("hp").value as Long).toInt()
+                val lvlValue = (snapshot.child("lvl").value as Long).toInt()
+                val expValue = (snapshot.child("experience").value as Long).toInt()
+                moneyValue = (snapshot.child("money").value as Long).toString()
+                progressHp.progress = HPvalue
+                textHp.text = "Здоровье $HPvalue/100"
 
-            progressLvl.progress = expValue
-            textLvl.text = "Уровень $lvlValue ($expValue/100)"
+                progressLvl.progress = expValue
+                textLvl.text = "Уровень $lvlValue ($expValue/100)"
 
-            cointCountText.text = moneyValue
-        }
+                cointCountText.text = moneyValue
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Log.w("FirebaseDB", "Failed to read value.", error.toException())
+            }
+        })
     }
 
     override fun onStart() {
