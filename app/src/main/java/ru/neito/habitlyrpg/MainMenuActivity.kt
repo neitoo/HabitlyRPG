@@ -11,6 +11,8 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_info_account.*
 import kotlinx.android.synthetic.main.activity_main_menu.*
 import ru.neito.habitlyrpg.Logic.AlarmService
+import ru.neito.habitlyrpg.Logic.HabitRewarder
+import ru.neito.habitlyrpg.Model.Habits
 import java.util.prefs.AbstractPreferences
 
 class MainMenuActivity : AppCompatActivity() {
@@ -59,7 +61,6 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun readData(userID:String) {
-
         mDataBase = FirebaseDatabase.getInstance().getReference("User")
         mDataBase.child(userID).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

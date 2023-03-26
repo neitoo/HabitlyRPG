@@ -9,6 +9,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="habit_transition_name">habit_transition</string>
     <string name="habit_info_regular">Регулярная\nЧасть ваших повседневных привычек, регулярно помечайте их как выполненные. Например: тренировка в зале.</string>
     <string name="habit_info_harmful">Вредная\nКаждый день по умолчанию выполнено. Но если вы сорвались, снимите отметку о выполнении.</string>
     <string name="habit_info_disposable">Одноразовая\nЕдиноразовое выполнение события. Например: сходить к врачу.</string>

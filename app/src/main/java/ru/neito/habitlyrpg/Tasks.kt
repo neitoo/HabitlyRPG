@@ -13,6 +13,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import org.json.JSONException
+import ru.neito.habitlyrpg.Logic.HabitRewarder
 import ru.neito.habitlyrpg.Model.HabitAdapter
 import ru.neito.habitlyrpg.Model.Habit
 import ru.neito.habitlyrpg.Model.HabitViewModel
@@ -49,7 +50,7 @@ class Tasks : Fragment() {
         val file = File(context?.filesDir, "habit.json")
         if (!file.exists()) {
             file.createNewFile()
-            val habits = Habits(listOf<Any>())
+            val habits = Habits(listOf<Habit>())
             val objectMapper = jacksonObjectMapper()
             val json = objectMapper.writeValueAsString(habits)
             file.writeText(json)
@@ -70,11 +71,11 @@ class Tasks : Fragment() {
         }
     }
 
-    /*override fun onResume() {
+    override fun onResume() {
         super.onResume()
         dataInitialize()
         helperAdapter.notifyDataSetChanged()
-    }*/
+    }
 
 
     private fun dataInitialize() {
@@ -94,6 +95,7 @@ class Tasks : Fragment() {
                 titleList.clear()
                 titleList.addAll(habits)
                 titleList.sortWith(compareBy({it.complete}, {it.id}))
+
             }
 
         } catch (e: JSONException) {

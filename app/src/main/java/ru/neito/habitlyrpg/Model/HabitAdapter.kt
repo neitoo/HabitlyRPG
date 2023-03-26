@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.PopupMenu
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
@@ -19,8 +20,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.item_layout.view.*
+import ru.neito.habitlyrpg.Logic.HabitRewarder
 import ru.neito.habitlyrpg.R
 import java.io.File
+import java.util.*
 
 class HabitAdapter(
     private var titleList: MutableList<Habit>,
@@ -33,6 +36,7 @@ class HabitAdapter(
         titleList.addAll(habits)
         notifyDataSetChanged()
     }
+
 
     init {
         viewModel.getHabitsLiveData().observeForever(habitsObserver)
@@ -59,14 +63,20 @@ class HabitAdapter(
         holder.checkHab.isChecked = titleList[position].complete
         if (titleList[position].complete) {
             holder.frame.setBackgroundResource(R.drawable.habit_bg_checked)
+            holder.itemView.isEnabled = currentItem.type != 3
         } else {
             holder.frame.setBackgroundResource(R.drawable.habit_bg)
+            holder.itemView.isEnabled = true
         }
 
-        holder.checkHab.setOnCheckedChangeListener { _, isChecked ->
+        holder.itemView.setOnClickListener { view ->
+            val isChecked = !holder.checkHab.isChecked
             titleList[position].complete = isChecked
+            holder.checkHab.isChecked = isChecked
             saveData()
 
+            val habitsInstance = Habits(titleList)
+            HabitRewarder(context!!,habitsInstance).onHabitCompleted(currentItem, isChecked)
             if (isChecked) {
                 holder.frame.setBackgroundResource(R.drawable.habit_bg_checked)
             } else {
@@ -75,12 +85,29 @@ class HabitAdapter(
 
             // Сортировка списка при изменении состояния чекбокса
             titleList.sortWith(compareBy({it.complete}, {it.id}))
+            /*val fromPosition = position
+            val toPosition = titleList.indexOf(currentItem)
+            if (fromPosition != toPosition) {
+                // Анимация перемещения карточки
+                val animation = if (fromPosition > toPosition) {
+                    AnimationUtils.loadAnimation(context, R.anim.slide_down)
+                } else {
+                    AnimationUtils.loadAnimation(context, R.anim.slide_up)
+                }
+                holder.itemView.startAnimation(animation)
+                // Перемещение карточки
+                Collections.swap(titleList, fromPosition, toPosition)
+                notifyItemMoved(fromPosition, toPosition)
+            }*/
+
+
             holder.itemView.post {
                 notifyDataSetChanged()
             }
         }
 
     }
+
 
     private fun saveData() {
         val gson = Gson()
@@ -103,6 +130,7 @@ class HabitAdapter(
             menu.setOnClickListener { popupMenu(it) }
 
         }
+
 
         private fun popupMenu(v:View) {
             val id = titleList[adapterPosition].id

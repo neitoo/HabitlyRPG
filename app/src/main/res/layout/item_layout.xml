@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardView"
     android:layout_width="match_parent"
-
+    android:animateLayoutChanges="true"
+    android:transitionName="@string/habit_transition_name"
     android:layout_height="wrap_content"
     android:layout_marginVertical="10dp"
     app:cardBackgroundColor="#161E35">
@@ -20,7 +21,9 @@
             android:layout_gravity="right|center_vertical"
             android:layout_margin="5dp"
             android:buttonTint="#3071E7"
-            android:checked="false" />
+
+            android:checked="false"
+            android:clickable="false" />
 
         <FrameLayout
             android:id="@+id/backgroundHabit"
