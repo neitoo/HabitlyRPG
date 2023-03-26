@@ -53,7 +53,7 @@ class BossFight : Fragment() {
             val monster = gson.fromJson(monsterJsonObject.toString(), Monster::class.java)
             monsterList.add(monster)
         }
-        bossClicker = Boss(bossImageView, bossHealthBar, bossTextHp, monsterList)
+        bossClicker = Boss(context,bossImageView, bossHealthBar, bossTextHp, monsterList)
         bossImageView.setOnClickListener {
             bossClicker.onBossClick()
         }

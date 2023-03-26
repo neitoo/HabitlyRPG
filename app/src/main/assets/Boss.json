@@ -1,32 +1,38 @@
 {"monster":[
   {
     "id":0,
-    "hp": 100,
-    "filePathImage": "Monster/Monster1.png"
+    "hp": 200,
+    "filePathImage": "Monster/Monster1.png",
+    "currency": 50
   },
   {
     "id":1,
-    "hp": 200,
-    "filePathImage": "Monster/Monster2.png"
+    "hp": 400,
+    "filePathImage": "Monster/Monster2.png",
+    "currency": 100
   },
   {
     "id":2,
-    "hp": 300,
-    "filePathImage": "Monster/Monster3.png"
+    "hp": 700,
+    "filePathImage": "Monster/Monster3.png",
+    "currency": 150
   },
   {
     "id":3,
-    "hp": 400,
-    "filePathImage": "Monster/Monster4.png"
+    "hp": 1100,
+    "filePathImage": "Monster/Monster4.png",
+    "currency": 200
   },
   {
     "id":4,
-    "hp": 500,
-    "filePathImage": "Monster/Monster5.png"
+    "hp": 1600,
+    "filePathImage": "Monster/Monster5.png",
+    "currency": 250
   },
   {
     "id":5,
-    "hp": 600,
-    "filePathImage": "Monster/Monster6.png"
+    "hp": 2400,
+    "filePathImage": "Monster/Monster6.png",
+    "currency": 300
   }
 ]}

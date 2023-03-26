@@ -10,7 +10,7 @@
   {
     "id":2,
     "image":"shopitem/weapon02.png",
-    "price":560,
+    "price":620,
     "damage": 20,
     "name": "Меч",
     "description": "Двуручное оружие с длинным лезвием"
@@ -18,7 +18,7 @@
   {
     "id":3,
     "image":"shopitem/weapon03.png",
-    "price":900,
+    "price":1050,
     "damage": 30,
     "name": "Кистень",
     "description": "Короткое оружие с шаром на цепи"
@@ -26,7 +26,7 @@
   {
     "id":4,
     "image":"shopitem/weapon04.png",
-    "price":1100,
+    "price":1650,
     "damage": 40,
     "name": "Лабрис",
     "description": "Двуручное оружие с двумя лезвиями по бокам"
@@ -34,7 +34,7 @@
   {
     "id":5,
     "image":"shopitem/weapon05.png",
-    "price":1580,
+    "price":2680,
     "damage": 50,
     "name": "Лук",
     "description": "Дальнобойное оружие, стреляющее стрелами"
@@ -42,7 +42,7 @@
   {
     "id":6,
     "image":"shopitem/weapon06.png",
-    "price":2000,
+    "price":4000,
     "damage": 60,
     "name": "Копье",
     "description": "Длинное оружие с острым концом"
