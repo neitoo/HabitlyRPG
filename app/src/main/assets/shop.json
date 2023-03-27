@@ -1,50 +1,65 @@
 {"items":[
   {
     "id":1,
+    "image":"shopitem/heart.png",
+    "price":100,
+    "damage": 0,
+    "name": "Здоровье",
+    "description": "Пополнение вашего здоровья на 10 единиц",
+    "atLvl": 1
+  },
+  {
+    "id":2,
     "image":"shopitem/weapon01.png",
     "price":270,
     "damage": 10,
     "name": "Клинок",
-    "description": "Универсальное оружие с острым лезвием"
+    "description": "Универсальное оружие с острым лезвием",
+    "atLvl": 1
   },
   {
-    "id":2,
+    "id":3,
     "image":"shopitem/weapon02.png",
     "price":620,
     "damage": 20,
     "name": "Меч",
-    "description": "Двуручное оружие с длинным лезвием"
+    "description": "Двуручное оружие с длинным лезвием",
+    "atLvl": 5
   },
   {
-    "id":3,
+    "id":4,
     "image":"shopitem/weapon03.png",
     "price":1050,
     "damage": 30,
     "name": "Кистень",
-    "description": "Короткое оружие с шаром на цепи"
+    "description": "Короткое оружие с шаром на цепи",
+    "atLvl": 13
   },
   {
-    "id":4,
+    "id":5,
     "image":"shopitem/weapon04.png",
     "price":1650,
     "damage": 40,
     "name": "Лабрис",
-    "description": "Двуручное оружие с двумя лезвиями по бокам"
+    "description": "Двуручное оружие с двумя лезвиями по бокам",
+    "atLvl": 21
   },
   {
-    "id":5,
+    "id":6,
     "image":"shopitem/weapon05.png",
     "price":2680,
     "damage": 50,
     "name": "Лук",
-    "description": "Дальнобойное оружие, стреляющее стрелами"
+    "description": "Дальнобойное оружие, стреляющее стрелами",
+    "atLvl": 30
   },
   {
-    "id":6,
+    "id":7,
     "image":"shopitem/weapon06.png",
     "price":4000,
     "damage": 60,
     "name": "Копье",
-    "description": "Длинное оружие с острым концом"
+    "description": "Длинное оружие с острым концом",
+    "atLvl": 46
   }
 ]}

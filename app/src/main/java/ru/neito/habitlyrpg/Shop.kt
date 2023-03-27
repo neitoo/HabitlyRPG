@@ -20,12 +20,13 @@ class Shop : Fragment() {
     private var items: MutableList<DataShop> = mutableListOf()
     private lateinit var recViewShop: RecyclerView
     private lateinit var shopAdapter: ShopAdapter
+    private lateinit var moneyValue: () -> String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_shop, container, false)
-
+        moneyValue = { (activity as MainMenuActivity).moneyValue }
         return view
     }
 
@@ -33,12 +34,12 @@ class Shop : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recViewShop = view.findViewById(R.id.shopRecycler)
-        val staggeredGridLayoutManager = StaggeredGridLayoutManager(3, LinearLayoutManager.VERTICAL)
+        val staggeredGridLayoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         recViewShop.layoutManager = staggeredGridLayoutManager
 
         parseJson()
         val mainMenuActivity = activity as MainMenuActivity
-        shopAdapter = ShopAdapter(items,mainMenuActivity.moneyValue)
+        shopAdapter = ShopAdapter(requireContext(),items,moneyValue)
         recViewShop.adapter = shopAdapter
 
     }

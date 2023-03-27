@@ -21,6 +21,7 @@ class MainMenuActivity : AppCompatActivity() {
     private lateinit var  userID: String
 
     lateinit var moneyValue: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
@@ -76,6 +77,7 @@ class MainMenuActivity : AppCompatActivity() {
                 textLvl.text = "Уровень $lvlValue ($expValue/100)"
 
                 cointCountText.text = moneyValue
+
             }
             override fun onCancelled(error: DatabaseError) {
                 Log.w("FirebaseDB", "Failed to read value.", error.toException())
