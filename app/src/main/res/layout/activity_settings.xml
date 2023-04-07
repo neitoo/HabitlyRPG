@@ -105,11 +105,26 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/opensansmediun"
-                    android:text="Настройки приложения"
+                    android:text="О приложении"
                     android:textAllCaps="true"
                     android:textColor="#A6B2EC "
                     android:textSize="12sp"
                     android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/helpButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/setting_button"
+                    android:fontFamily="@font/opensansmediun"
+                    android:paddingLeft="30dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="Помощь"
+                    android:textAlignment="textStart"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19sp"/>
             </LinearLayout>
         </ScrollView>
 

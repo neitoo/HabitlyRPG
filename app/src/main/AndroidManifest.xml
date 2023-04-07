@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ru.neito.habitlyrpg">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
     <application
@@ -13,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HabitlyRPG">
-
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false" />
         <activity
             android:name=".CreateHabitActivity"
             android:exported="false" />
@@ -42,8 +45,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="ru.neito.habitlyrpg.Logic.AlarmService" />
-        <receiver android:name="ru.neito.habitlyrpg.Logic.AlarmReceiver" />
+
+        <service android:name=".Logic.AlarmService" />
+
+        <receiver android:name=".Logic.AlarmReceiver" />
     </application>
 
 </manifest>

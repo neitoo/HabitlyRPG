@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="0dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp">
+
+    <Button
+        android:id="@+id/viewHelpButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius"
+        android:backgroundTint="#2A3249"
+        android:drawableLeft="@drawable/task"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/opensansmediun"
+        android:padding="10dp"
+        android:text="Здоровье игрока"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/helpInfoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
+        android:background="#2A3249"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/helpText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:fontFamily="@font/opensansmediun"
+            android:text="Информация о здоровье игрока"
+            android:textColor="#E6E6E6" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -45,6 +45,10 @@ class SettingsActivity : AppCompatActivity() {
             }
             alertLogout.show()
         }
+
+        helpButton.setOnClickListener {
+            startActivity(Intent(this@SettingsActivity, HelpActivity::class.java))
+        }
     }
 
 

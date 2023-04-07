@@ -38,7 +38,6 @@ class Shop : Fragment() {
         recViewShop.layoutManager = staggeredGridLayoutManager
 
         parseJson()
-        val mainMenuActivity = activity as MainMenuActivity
         shopAdapter = ShopAdapter(requireContext(),items,moneyValue)
         recViewShop.adapter = shopAdapter
 
