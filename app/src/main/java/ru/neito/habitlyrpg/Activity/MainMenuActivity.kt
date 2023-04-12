@@ -20,6 +20,7 @@ class MainMenuActivity : AppCompatActivity() {
     private lateinit var  userID: String
 
     lateinit var moneyValue: String
+    var userLvl: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class MainMenuActivity : AppCompatActivity() {
         navigation_view.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.tasks -> replaceFragment(Tasks())
-                R.id.store -> replaceFragment(Shop())
+                R.id.store -> replaceFragment(Shop(userLvl))
                 R.id.bosses -> replaceFragment(BossFight())
                 else -> {}
             }
@@ -74,6 +75,7 @@ class MainMenuActivity : AppCompatActivity() {
 
                 progressLvl.progress = expValue
                 textLvl.text = "Уровень $lvlValue ($expValue/100)"
+                userLvl = lvlValue
 
                 cointCountText.text = moneyValue
 

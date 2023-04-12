@@ -17,7 +17,7 @@ import ru.neito.habitlyrpg.Model.ShopAdapter
 import ru.neito.habitlyrpg.R
 
 
-class Shop : Fragment() {
+class Shop(var userLvl: Int) : Fragment() {
     private var items: MutableList<DataShop> = mutableListOf()
     private lateinit var recViewShop: RecyclerView
     private lateinit var shopAdapter: ShopAdapter
@@ -39,7 +39,7 @@ class Shop : Fragment() {
         recViewShop.layoutManager = staggeredGridLayoutManager
 
         parseJson()
-        shopAdapter = ShopAdapter(requireContext(),items,moneyValue)
+        shopAdapter = ShopAdapter(requireContext(),items,moneyValue, userLvl)
         recViewShop.adapter = shopAdapter
 
     }
