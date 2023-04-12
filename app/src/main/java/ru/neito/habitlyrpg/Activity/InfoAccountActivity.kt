@@ -1,4 +1,4 @@
-package ru.neito.habitlyrpg
+package ru.neito.habitlyrpg.Activity
 
 import android.app.AlertDialog
 import android.content.ClipData
@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_info_account.*
 import kotlinx.android.synthetic.main.layout_dialog.*
 import kotlinx.android.synthetic.main.layout_dialog.view.*
+import ru.neito.habitlyrpg.R
 
 class InfoAccountActivity : AppCompatActivity() {
     private lateinit var sharePref: SharedPreferences

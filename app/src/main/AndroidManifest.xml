@@ -15,28 +15,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HabitlyRPG">
         <activity
-            android:name=".HelpActivity"
+            android:name=".Activity.HelpActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateHabitActivity"
+            android:name=".Activity.CreateHabitActivity"
             android:exported="false" />
         <activity
-            android:name=".InfoAccountActivity"
+            android:name=".Activity.InfoAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".SettingsActivity"
+            android:name=".Activity.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistrationActivity"
+            android:name=".Activity.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainMenuActivity"
+            android:name=".Activity.MainMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".Activity.SplashScreen"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>

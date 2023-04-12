@@ -1,4 +1,4 @@
-package ru.neito.habitlyrpg
+package ru.neito.habitlyrpg.Activity
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_registration.*
 import ru.neito.habitlyrpg.Model.User
+import ru.neito.habitlyrpg.R
 
 class RegistrationActivity : AppCompatActivity() {
     lateinit var sharePref: SharedPreferences

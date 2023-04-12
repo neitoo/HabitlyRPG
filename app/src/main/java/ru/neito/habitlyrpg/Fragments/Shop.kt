@@ -1,10 +1,9 @@
-package ru.neito.habitlyrpg
+package ru.neito.habitlyrpg.Fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,8 +11,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import org.json.JSONException
+import ru.neito.habitlyrpg.Activity.MainMenuActivity
 import ru.neito.habitlyrpg.Model.DataShop
 import ru.neito.habitlyrpg.Model.ShopAdapter
+import ru.neito.habitlyrpg.R
 
 
 class Shop : Fragment() {

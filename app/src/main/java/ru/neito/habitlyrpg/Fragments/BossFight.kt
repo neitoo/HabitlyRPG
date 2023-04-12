@@ -1,9 +1,6 @@
-package ru.neito.habitlyrpg
+package ru.neito.habitlyrpg.Fragments
 
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +9,11 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.fragment_boss_fight.*
 import org.json.JSONArray
 import org.json.JSONObject
 import ru.neito.habitlyrpg.Logic.Boss
 import ru.neito.habitlyrpg.Model.Monster
+import ru.neito.habitlyrpg.R
 
 class BossFight : Fragment() {
     private lateinit var bossImageView: ImageView

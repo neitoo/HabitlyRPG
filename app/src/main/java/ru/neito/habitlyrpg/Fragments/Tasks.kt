@@ -1,7 +1,6 @@
-package ru.neito.habitlyrpg
+package ru.neito.habitlyrpg.Fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,13 +12,12 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import org.json.JSONException
-import ru.neito.habitlyrpg.Logic.HabitRewarder
 import ru.neito.habitlyrpg.Model.HabitAdapter
 import ru.neito.habitlyrpg.Model.Habit
 import ru.neito.habitlyrpg.Model.HabitViewModel
 import ru.neito.habitlyrpg.Model.Habits
+import ru.neito.habitlyrpg.R
 import java.io.File
-import java.util.*
 import kotlin.collections.ArrayList
 
 

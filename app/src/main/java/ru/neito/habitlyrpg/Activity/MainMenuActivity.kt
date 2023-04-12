@@ -1,4 +1,4 @@
-package ru.neito.habitlyrpg
+package ru.neito.habitlyrpg.Activity
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -6,14 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_info_account.*
 import kotlinx.android.synthetic.main.activity_main_menu.*
+import ru.neito.habitlyrpg.Fragments.BossFight
+import ru.neito.habitlyrpg.Fragments.Shop
+import ru.neito.habitlyrpg.Fragments.Tasks
 import ru.neito.habitlyrpg.Logic.AlarmService
-import ru.neito.habitlyrpg.Logic.HabitRewarder
-import ru.neito.habitlyrpg.Model.Habits
-import java.util.prefs.AbstractPreferences
+import ru.neito.habitlyrpg.R
 
 class MainMenuActivity : AppCompatActivity() {
     private lateinit var sharePref: SharedPreferences
@@ -49,7 +48,7 @@ class MainMenuActivity : AppCompatActivity() {
         }
         
         addTaskBtn.setOnClickListener {
-            val intent = Intent(this,CreateHabitActivity::class.java)
+            val intent = Intent(this, CreateHabitActivity::class.java)
             startActivity(intent)
         }
     }

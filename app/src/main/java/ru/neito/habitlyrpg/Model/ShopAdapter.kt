@@ -142,8 +142,12 @@ class ShopAdapter(private var context: Context,
                 if (userMoney >= price) {
                     if (currentItem.id != 1) {
                         val purchasedItemsRef = mDataBase.child(userID).child("purchasedItems")
-                        val newItemRef = purchasedItemsRef.push()
-                        newItemRef.setValue(currentItem.id)
+                        val purchasedItems = snapshot.child("purchasedItems").value as? String
+                        if (purchasedItems != null) {
+                            purchasedItemsRef.setValue("$purchasedItems,${currentItem.id}")
+                        } else {
+                            purchasedItemsRef.setValue("${currentItem.id}")
+                        }
                     } else {
                         val userHealth = snapshot.child("hp").value as Long
                         mDataBase.child(userID).child("hp").setValue(userHealth + 10)

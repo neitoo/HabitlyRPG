@@ -1,4 +1,4 @@
-package ru.neito.habitlyrpg
+package ru.neito.habitlyrpg.Activity
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -8,6 +8,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_settings.*
+import ru.neito.habitlyrpg.R
 
 class SettingsActivity : AppCompatActivity() {
     lateinit var sharePref: SharedPreferences

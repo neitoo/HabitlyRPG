@@ -1,4 +1,4 @@
-package ru.neito.habitlyrpg
+package ru.neito.habitlyrpg.Activity
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import kotlinx.android.synthetic.main.activity_create_habit.*
 import ru.neito.habitlyrpg.Model.Habit
+import ru.neito.habitlyrpg.R
 import java.util.*
 
 class CreateHabitActivity : AppCompatActivity() {
